@@ -13,7 +13,7 @@ const app = express();
 // Middleware
 app.use(bodyParser.json());
 app.use(cors({
-  origin: 'https://employeeapp-mern.vercel.app/'
+  origin: 'https://employeeapp-mern.vercel.app'
 }));
 
 // DB Config
