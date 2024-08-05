@@ -12,7 +12,9 @@ const app = express();
 
 // Middleware
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors({
+  origin: 'https://employeeapp-mern.vercel.app/'
+}));
 
 // DB Config
 const db = process.env.mongodb_URL;
