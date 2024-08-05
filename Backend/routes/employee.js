@@ -28,7 +28,7 @@ router.get('/:id', auth, async (req, res) => {
 
 // Create an employee
 router.post('/', auth, async (req, res) => {
-  console.log('Request Body:', req.body); // Log request body for debugging
+  console.log('Request Body:', req.body); 
   const employee = new Employee({
     id: req.body.id,
     name: req.body.name,
@@ -43,7 +43,7 @@ router.post('/', auth, async (req, res) => {
     const newEmployee = await employee.save();
     res.status(201).json(newEmployee);
   } catch (err) {
-    console.error('Error creating employee:', err.message); // Log error message for debugging
+    console.error('Error creating employee:', err.message); 
     res.status(400).json({ message: err.message });
   }
 });
@@ -74,7 +74,7 @@ router.patch('/:id', auth , async (req, res) => {
 router.delete('/:id', auth, async (req, res) => {
   try {
     console.log(`Deleting employee with id: ${req.params.id}`);
-    const employee = await Employee.findById(req.params.id); // Corrected line
+    const employee = await Employee.findById(req.params.id); 
     if (!employee) {
       return res.status(404).json({ message: 'Cannot find employee' });
     }
