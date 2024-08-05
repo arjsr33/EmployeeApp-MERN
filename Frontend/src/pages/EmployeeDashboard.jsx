@@ -12,7 +12,7 @@ const EmployeeDashboard = () => {
     if (!token) {
       navigate('/'); 
     } else {
-      axios.get('http://localhost:5000/api/employees', {
+      axios.get('https://employee-app-mern-lyart.vercel.app/api/employees', {
         headers: { 'x-auth-token': token }
       })
         .then(response => {

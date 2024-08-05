@@ -12,7 +12,7 @@ const EmployeeLogin = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/employee/login', { email: username, password });
+      const res = await axios.post('https://employee-app-mern-lyart.vercel.app/api/auth/employee/login', { email: username, password });
       setMessage(res.data.msg);  
       if (res.data.msg === 'Login successful') {
         localStorage.setItem('token', res.data.token); 

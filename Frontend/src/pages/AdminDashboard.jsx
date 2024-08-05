@@ -30,7 +30,7 @@ const AdminDashboard = () => {
   const fetchEmployees = async () => {
     const token = localStorage.getItem('token'); 
     try {
-      const response = await axios.get('http://localhost:5000/api/employees', {
+      const response = await axios.get('https://employee-app-mern-lyart.vercel.app/api/employees', {
         headers: { 'x-auth-token': token }
       });
       setEmployees(response.data);
@@ -43,7 +43,7 @@ const AdminDashboard = () => {
     e.preventDefault();
     const token = localStorage.getItem('token'); 
     try {
-      const response = await axios.post('http://localhost:5000/api/employees', newEmployee, {
+      const response = await axios.post('https://employee-app-mern-lyart.vercel.app/api/employees', newEmployee, {
         headers: { 'x-auth-token': token }
       });
       setEmployees([...employees, response.data]);
@@ -70,7 +70,7 @@ const AdminDashboard = () => {
     if (!selectedEmployee) return;
     const token = localStorage.getItem('token'); 
     try {
-      const response = await axios.patch(`http://localhost:5000/api/employees/${selectedEmployee._id}`, selectedEmployee, {
+      const response = await axios.patch(`https://employee-app-mern-lyart.vercel.app/api/employees/${selectedEmployee._id}`, selectedEmployee, {
         headers: { 'x-auth-token': token }
       });
       setEmployees(employees.map(emp => (emp._id === selectedEmployee._id ? response.data : emp)));
@@ -84,7 +84,7 @@ const AdminDashboard = () => {
     const token = localStorage.getItem('token'); 
     try {
       console.log(`Deleting employee with id: ${id}`);
-      await axios.delete(`http://localhost:5000/api/employees/${id}`, {
+      await axios.delete(`https://employee-app-mern-lyart.vercel.app/api/employees/${id}`, {
         headers: { 'x-auth-token': token }
       });
       setEmployees(employees.filter(employee => employee._id !== id)); 
